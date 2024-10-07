@@ -5,9 +5,9 @@ import os
 abs_path = os.getcwd()
 sys.path.append(abs_path) # Adds higher directory to python modules path.
 
-def gen_background(client,messages):
-    messages=[
-        {"role": "system", "content": "你需要分析用户给出的任务，生成任务的背景信息，以无序列表的格式输出。例如，当用户需要LLM玩谁是卧底游戏时，背景信息可能为：\n- 你正在参与一场谁是卧底游戏\n- 你的身份词是“黄桃”。"},
+def gen_background(client, messages):
+    messages = [
+        {"role": "system", "content": "You need to analyze the task given by the user, generate background information for the task, and output it in an unordered list format. For example, when the user needs the LLM to play the game 'Who is the Undercover', the background information might be:\n- You are participating in a game of 'Who is the Undercover'\n- Your identity word is 'yellow peach'."},
     ] + messages
     response = client.generate_response(messages)
     return response

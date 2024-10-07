@@ -5,9 +5,9 @@ import os
 abs_path = os.getcwd()
 sys.path.append(abs_path) # Adds higher directory to python modules path.
 
-def gen_skills(generator,messages):
-    messages=[
-        {"role": "system", "content": "你需要分析用户给出的任务，确定任务所需的技能，以无序列表的格式输出。请注意，技能描述应当尽量简单，不要包含过多的细节。例如，当用户需要LLM点评时事热点时，所需技能可能为：\n- 对各类社会热点事件了如指掌,能快速把握事件的来龙去脉\n- 善于从多角度分析事件,给出独特犀利的评论观点"},
+def gen_skills(generator, messages):
+    messages = [
+        {"role": "system", "content": "You need to analyze the task given by the user, determine the skills needed for the task, and output them in an unordered list format. Note that the skill descriptions should be as simple as possible, without including too many details. For example, when the user needs the LLM to comment on current events, the required skills might be:\n- Thoroughly familiar with various social hot topics, able to quickly grasp the ins and outs of events\n- Good at analyzing events from multiple perspectives, providing unique and incisive commentary"},
     ] + messages
     response = generator.generate_response(messages)
     return response
